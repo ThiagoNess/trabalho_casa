@@ -1,148 +1,147 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+  background-color: #ab226d;
+  position: relative;
+  animation: zoomInLogo 500ms ease-in-out forwards;
+}
+
+.logo:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ab226d;
+  opacity: 0.5;
+  filter: blur(8px);
+  animation: trailEffect 2s linear forwards;
+  z-index: -1;
+}
+
+.logo .maiorq {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%) rotate(45deg);
+  opacity: 0;
+  animation: moveInMaiorq 500ms ease-in-out forwards 500ms;
+}
+
+.logo .maiorq::after,
+.logo .maiorq::before {
+  content: "";
+  width: 30px;
+  height: 8px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo .maiorq::before {
+  width: 8px;
+  height: 30px;
+  left: initial;
+  right: 0;
+}
+
+.logo .underline {
+  width: 0;
+  height: 7px;
+  background-color: white;
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  opacity: 0;
+  animation: growUnderline 500ms ease-in-out forwards 1s;
+}
+
+@keyframes zoomInLogo {
+  0% {
+    width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 0;
+    left: 0;
+    top: 0;
+    transform: rotate(180deg)
   }
-  
-  .logo-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .logo {
+  100% {
     width: 100px;
     height: 100px;
     border-radius: 18px;
-    background-color: #ab226d;
-    position: relative;
-    animation: zoomInLogo 500ms ease-in-out forwards;
-  }
-
-  .logo:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
     left: 0;
-    background-color: #ab226d;
-    opacity: 0.5;
-    filter: blur(8px);
-    animation: trailEffect 2s linear forwards;
-    z-index: -1;
-  }
-  
-  .logo .maiorq {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%) rotate(45deg);
-    opacity: 0;
-    animation: moveInMaiorq 500ms ease-in-out forwards 500ms;
-  }
-  
-  .logo .maiorq::after,
-  .logo .maiorq::before {
-    content: "";
-    width: 30px;
-    height: 8px;
-    background-color: white;
-    position: absolute;
     top: 0;
-    left: 0;
+    transform: rotate(0deg)
   }
-  
-  .logo .maiorq::before {
-    width: 8px;
-    height: 30px;
-    left: initial;
-    right: 0;
-  }
-  
-  .logo .underline {
-    width: 0;
-    height: 7px;
-    background-color: white;
-    position: absolute;
-    bottom: 30px;
-    right: 20px;
-    opacity: 0;
-    animation: growUnderline 500ms ease-in-out forwards 1s;
-  }
-  
-  @keyframes zoomInLogo {
-    0% {
-      width: 100vw;
-      height: 100vh;
-      border-radius: 0;
-      left: 0;
-      top: 0;
-      transform: rotate(180deg)
-    }
-    100% {
-      width: 100px;
-      height: 100px;
-      border-radius: 18px;
-      left: 0;
-      top: 0;
-      transform: rotate(0deg)
-    }
-  }
+}
 
-  @keyframes trailEffect {
-    0% {
-     transform: scale(1) rotate(0deg);
-     opacity: 0.5;
-     filter: blur(16px);
-     background-color: #ab226d;
-   }
-   100% {
-     transform: scale(0.1) rotate(360deg);
-     opacity: 0;
-     filter: blur(0);
-     background-color: #ab226d;
-   }
+@keyframes trailEffect {
+  0% {
+   transform: scale(1) rotate(0deg);
+   opacity: 0.5;
+   filter: blur(16px);
+   background-color: #ab226d;
  }
-  
-  @keyframes moveInMaiorq {
-    0% {
-      left: -30px;
-      opacity: 0;
-    }
-    50% {
-      left: 10px;
-      opacity: 1;
-    }
-    75% {
-      left: 5px;
-      opacity: 1;
-    }
-    100% {
-      left: 10px;
-      opacity: 1;
-    }
+ 100% {
+   transform: scale(0.1) rotate(360deg);
+   opacity: 0;
+   filter: blur(0);
+   background-color: #ab226d;
+ }
+}
+
+@keyframes moveInMaiorq {
+  0% {
+    left: -30px;
+    opacity: 0;
   }
-  
-  @keyframes growUnderline {
-    0% {
-      width: 0;
-      opacity: 0;
-    }
-    100% {
-      width: 25px;
-      opacity: 1;
-    }
+  50% {
+    left: 10px;
+    opacity: 1;
   }
-  
+  75% {
+    left: 5px;
+    opacity: 1;
+  }
+  100% {
+    left: 10px;
+    opacity: 1;
+  }
+}
+
+@keyframes growUnderline {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 25px;
+    opacity: 1;
+  }
+}
